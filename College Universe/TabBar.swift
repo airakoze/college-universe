@@ -9,43 +9,35 @@ import SwiftUI
 
 struct TabBar: View {
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             ContentView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .offset(y: 200)
             HStack {
                 Spacer()
-                VStack {
+                VStack(spacing: 0) {
                     Image(systemName: "house")
                         .symbolVariant(.fill)
                         .font(.body.bold())
+                        .frame(width: 80, height: 29)
                     Text("Home")
                         .font(.caption2)
                 }
                 Spacer()
-                VStack {
+                VStack(spacing: 0) {
                     Image(systemName: "person")
                         .symbolVariant(.fill)
                         .font(.body.bold())
-                    Text("Acconut")
+                        .frame(width: 80, height: 29)
+                    Text("Account")
                         .font(.caption2)
                 }
                 Spacer()
             }
             .padding(.top, 14)
             .frame(height: 88, alignment: .top)
-            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: 30, style: .continuous)
-                    .stroke(
-                        .linearGradient(
-                            colors: [
-                                .white.opacity(0.3),
-                                .black.opacity(0.1)
-                            ], startPoint: .top, endPoint: .bottom
-                        )
-                    )
-                    .blendMode(.overlay)
-            )
+            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 34, style: .continuous))
+            .strokeStyle(cornerRadius: 34)
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
         }
