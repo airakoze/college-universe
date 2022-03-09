@@ -17,7 +17,6 @@ struct BlobView: View {
             let x = cos(angle.radians)
             let angle2 = Angle.degrees(now.remainder(dividingBy: 6) * 10)
             let x2 = cos(angle2.radians)
-//            Text("Value: \(x)")
             
             Canvas { context, size in
                 context.fill(path(in: CGRect(x: 0, y: 0, width: size.width, height: size.height), x: x, x2: x2), with: .linearGradient(Gradient(colors: [.pink, .blue]), startPoint: CGPoint(x: 0, y: 0), endPoint: CGPoint(x: 400, y: 400)))

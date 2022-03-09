@@ -27,6 +27,7 @@ struct ContentView: View {
             Text("Saint Louis University".uppercased())
                 .font(.footnote)
                 .fontWeight(.bold)
+                .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.426, green: 0.236, blue: 0.236)/*@END_MENU_TOKEN@*/)
                 .foregroundStyle(.secondary)
             Text("College Universe is an app designed to keep college students connected...")
                 .font(.footnote)
