@@ -8,45 +8,27 @@
 import SwiftUI
 
 struct TabBar: View {
-    @State var selectedTab: Tab = .home
+    @AppStorage("selectedTab") var selectedTab: Tab = .home
     @State var color: Color = .teal
     @State var tabItemWidth: CGFloat = 0
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            Group {
-                switch selectedTab {
-                case .home:
-                    ContentView()
-                case .explore:
-                    AccountView()
-                case .carpool:
-                    AccountView()
-                case .events:
-                    AccountView()
-                case .chat:
-                    AccountView()
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            HStack {
-                buttons
-            }
-            .padding(.horizontal, 8)
-            .padding(.top, 14)
-            .frame(height: 88, alignment: .top)
-            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 34, style: .continuous))
-            .background(
-                background
-            )
-            .overlay(
-                overlay
-            )
-            .strokeStyle(cornerRadius: 34)
-            .frame(maxHeight: .infinity, alignment: .bottom)
-            .ignoresSafeArea()
+        HStack {
+            buttons
         }
+        .padding(.horizontal, 8)
+        .padding(.top, 14)
+        .frame(height: 88, alignment: .top)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .circular))
+        .background(
+            background
+        )
+        .overlay(
+            overlay
+        )
+        .strokeStyle(cornerRadius: 34)
+        .frame(maxHeight: .infinity, alignment: .bottom)
+        .ignoresSafeArea()
     }
     
     var buttons: some View {
@@ -136,6 +118,6 @@ struct TabBar: View {
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
         TabBar()
-.previewInterfaceOrientation(.portrait)
+            .previewInterfaceOrientation(.portrait)
     }
 }

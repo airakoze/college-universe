@@ -29,10 +29,10 @@ struct TabItem: Identifiable {
 
 var tabItems = [
     TabItem(text: "Home", icon: "house", tab: .home, color: .teal),
-    TabItem(text: "Explore", icon: "magnifyingglass", tab: .explore, color: .blue),
-    TabItem(text: "Carpool", icon: "car", tab: .carpool, color: .red),
-    TabItem(text: "Events", icon: "calendar", tab: .events, color: .pink),
-    TabItem(text: "Chat", icon: "bubble.left", tab: .chat, color: .green)
+    TabItem(text: "Explore", icon: "magnifyingglass", tab: .explore, color: .teal),
+    TabItem(text: "Carpool", icon: "car", tab: .carpool, color: .teal),
+    TabItem(text: "Events", icon: "calendar", tab: .events, color: .teal),
+    TabItem(text: "Chat", icon: "bubble.left", tab: .chat, color: .teal)
 ]
 
 enum Tab: String {
