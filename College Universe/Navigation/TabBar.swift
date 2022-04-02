@@ -7,10 +7,22 @@
 
 import SwiftUI
 
+struct RoundedCornersShape: Shape {
+    let corners: UIRectCorner
+    let radius: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+
 struct TabBar: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
-    @State var color: Color = .teal
     @State var tabItemWidth: CGFloat = 0
+    var color: Color = .teal
     
     var body: some View {
         HStack {
@@ -18,15 +30,15 @@ struct TabBar: View {
         }
         .padding(.horizontal, 8)
         .padding(.top, 14)
-        .frame(height: 88, alignment: .top)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .circular))
+        .frame(height: 80, alignment: .top)
+        .background(.ultraThinMaterial, in: RoundedCornersShape(corners: [.topLeft, .topRight], radius: 25))
         .background(
             background
         )
         .overlay(
             overlay
         )
-        .strokeStyle(cornerRadius: 34)
+        .strokeStyle(cornerRadius: 25)
         .frame(maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
     }
@@ -36,7 +48,6 @@ struct TabBar: View {
             Button {
                 withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
                     selectedTab = item.tab
-                    color = item.color
                 }
             } label: {
                 VStack(spacing: 0) {
@@ -68,9 +79,9 @@ struct TabBar: View {
             if selectedTab == .explore { Spacer() }
             if selectedTab == .carpool { Spacer() }
             if selectedTab == .events {
-             Spacer()
-             Spacer()
-             Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
             }
             if selectedTab == .chat { Spacer() }
             Circle().fill(color).frame(width: tabItemWidth)
@@ -91,9 +102,9 @@ struct TabBar: View {
             if selectedTab == .explore { Spacer() }
             if selectedTab == .carpool { Spacer() }
             if selectedTab == .events {
-             Spacer()
-             Spacer()
-             Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
             }
             if selectedTab == .chat { Spacer() }
             Rectangle()
