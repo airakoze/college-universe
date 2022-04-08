@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E00F53927EE6DD400DB9797 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E00F53827EE6DD400DB9797 /* HomeView.swift */; };
+		6E482AFC2800D854007FA3DD /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E482AFB2800D854007FA3DD /* Features.swift */; };
 		6E90665E27D811880020F744 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E90665D27D811880020F744 /* Tab.swift */; };
 		6EAC7AC327CFD78700A675EC /* College_UniverseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC7AC227CFD78700A675EC /* College_UniverseApp.swift */; };
 		6EAC7AC527CFD78700A675EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC7AC427CFD78700A675EC /* ContentView.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		6E00F53827EE6DD400DB9797 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6E482AFB2800D854007FA3DD /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		6E90665D27D811880020F744 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		6EAC7ABF27CFD78700A675EC /* College Universe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "College Universe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EAC7AC227CFD78700A675EC /* College_UniverseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = College_UniverseApp.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				6E90665D27D811880020F744 /* Tab.swift */,
 				6EB663A527F7B8F4007BD78F /* PreferenceKeys.swift */,
+				6E482AFB2800D854007FA3DD /* Features.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			files = (
 				6EB663A227F7940B007BD78F /* HomeViewElements.swift in Sources */,
 				6E00F53927EE6DD400DB9797 /* HomeView.swift in Sources */,
+				6E482AFC2800D854007FA3DD /* Features.swift in Sources */,
 				6EAC7AD327D00C3400A675EC /* AccountView.swift in Sources */,
 				6EAC7AD527D0230D00A675EC /* HexagonView.swift in Sources */,
 				6EAC7AD127D0034500A675EC /* Styles.swift in Sources */,
