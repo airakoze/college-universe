@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @State var hasScrolled = false
+    @Namespace var namespace
+    @State var show = false
     
     var body: some View {
         ZStack {
@@ -19,18 +21,22 @@ struct HomeView: View {
                 
                 featured
                 
-                Color.clear.frame(height: 1000)
+                Text("What's Happening".uppercased())
+                    .font(.footnote.weight(.semibold))
+                    .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                
+                if !show {
+                    CardItem(namespace: namespace, show: $show)
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                                show.toggle()
+                            }
+                        }
+                }
             }
             .coordinateSpace(name: "scroll")
-            .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
-                withAnimation(.easeInOut) {
-                    if value < 0 {
-                        hasScrolled = true
-                    } else {
-                        hasScrolled = false
-                    }
-                }
-            })
             .coordinateSpace(name: "scroll")
             .safeAreaInset(edge: .top, content: {
                 Color.clear.frame(height: 70)
@@ -38,6 +44,10 @@ struct HomeView: View {
             .overlay(
                 NavigationBar(title: "Featured", hasScrolled: $hasScrolled)
             )
+            
+            if show {
+                CardView(namespace: namespace, show: $show)
+            }
         }
     }
     
@@ -45,6 +55,15 @@ struct HomeView: View {
         GeometryReader { proxy in
             Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
         }
+        .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
+            withAnimation(.easeInOut) {
+                if value < 0 {
+                    hasScrolled = true
+                } else {
+                    hasScrolled = false
+                }
+            }
+        })
         .frame(height: 0)
     }
     
