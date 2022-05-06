@@ -10,6 +10,7 @@ import SwiftUI
 struct CardView: View {
     var namespace: Namespace.ID
     @Binding var show: Bool
+    @State var appear = [false, false, false]
     
     var body: some View {
         ZStack {
@@ -20,6 +21,22 @@ struct CardView: View {
             .ignoresSafeArea()
             
             button
+        }
+        .onAppear {
+            withAnimation(.easeOut.delay(0.3)) {
+                appear[0] = true
+            }
+            withAnimation(.easeOut.delay(0.4)) {
+                appear[1] = true
+            }
+            withAnimation(.easeOut.delay(0.5)) {
+                appear[2] = true
+            }
+        }
+        .onChange(of: show) { newValue in
+            appear[0] = false
+            appear[1] = false
+            appear[2] = false
         }
     }
     
@@ -60,6 +77,7 @@ struct CardView: View {
                     .font(.footnote)
                     .matchedGeometryEffect(id: "text", in: namespace)
                 Divider()
+                    .opacity(appear[0] ? 1 : 0)
                 HStack {
                     Image("Avatar Default")
                         .resizable()
@@ -71,6 +89,7 @@ struct CardView: View {
                     Text("Hosted by SLU ASA")
                         .font(.footnote)
                 }
+                .opacity(appear[1] ? 1 : 0)
             }
                 .padding(20)
                 .background(
